@@ -4,13 +4,10 @@ import { fetchBreeds, fetchCatByBreed } from "./cat-api";
 import 'slim-select/dist/slimselect.css';
 import './styles.css';
 
-const itemsJs = {
-    selector: document.querySelector('.breed-select'),
-    catInfo: document.querySelector('.cat-info'),
-    loader: document.querySelector('.loader'),
-    error: document.querySelector('.error'),
-};
-const {selector, catInfo, loader, error} = itemsJs;
+const selector = document.querySelector('.breed-select');
+const catInfo = document.querySelector('.cat-info');
+const loader = document.querySelector('.loader');
+const error = document.querySelector('.error');
 
 loader.classList.replace('loader', 'is-hidden');
 error.classList.add('is-hidden');
