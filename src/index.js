@@ -50,6 +50,7 @@ function selectBreed(evt) {
         })
         .catch(fetchError);
     };
+    
 function fetchError(error) {
     selector.classList.remove('is-hidden');
     loader.classList.replace('loader', 'is-hidden');
