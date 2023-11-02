@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://Darjetii-Dooku.github.io/goit-js-10hw",
+  "homepage": "https://Darjetii-Dooku.github.io/goit-js-hw10",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-10hw/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw10/"
   },
   "repository": {
     "type": "git",
