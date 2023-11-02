@@ -39,7 +39,7 @@ function selectBreed(evt) {
     loader.classList.replace('is-hidden', 'loader');
     selector.classList.add('is-hidden');
     catInfo.classList.add('is-hidden');
-    selector.style.display = 'none';
+    
     
 
     const breedId = evt.currentTarget.value;
@@ -47,7 +47,6 @@ function selectBreed(evt) {
         .then(data => {
             loader.classList.replace('loader', 'is-hidden');
             selector.classList.remove('is-hidden');
-            selector.style.display = 'inline';
             const { url, breeds } = data[0];
 
             catInfo.innerHTML = `<div class="box-img"><img src="${url}" alt="${breeds[0].name}" width="400"/></div><div class="box"><h1>${breeds[0].name}</h1><p>${breeds[0].description}</p><p><b>Temperament:</b> ${breeds[0].temperament}</p></div>`
@@ -59,7 +58,6 @@ function selectBreed(evt) {
 function fetchError(error) {
     selector.classList.remove('is-hidden');
     loader.classList.replace('loader', 'is-hidden');
-    selector.style.display = 'inline';
 
     Notify.failure('Oops! Something went wrong! Try reloading the page or select another cat breed!', {
         position: 'center-center',
