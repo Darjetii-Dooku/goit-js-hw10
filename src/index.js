@@ -15,17 +15,37 @@ catInfo.classList.add('is-hidden');
 
 
 let arrBreedId = [];
+
 fetchBreeds()
-    .then(data => {
-        data.forEach(element => {
-            arrBreedId.push({text: element.name, value: element.id});
-        });
+  .then(breeds => {
+    selector.innerHTML = createSectionOptionsMarkup(breeds);
     new SlimSelect({
-        select: selector,
-        data: arrBreedId
-    });
-    })
-    .catch(fetchError);
+              select: selector,
+              settings: {
+                placeholderText: 'Custom Placeholder Text',
+              },
+          });
+  })
+    .catch(fetchError)
+
+    function createSectionOptionsMarkup(breedsArr) {
+      const results = breedsArr.map(
+      ({ id, name }) => `<option value="${id}">${name}</option>`
+    );
+    results.unshift('<option data-placeholder="true"></option>');
+    return results.join('');
+  }
+// fetchBreeds()
+//     .then(data => {
+//         data.forEach(element => {
+//             arrBreedId.push({text: element.name, value: element.id});
+//         });
+//     new SlimSelect({
+//         select: selector,
+//         data: arrBreedId
+//     });
+//     })
+//     .catch(fetchError);
 
 selector.addEventListener('change', selectBreed);
 
