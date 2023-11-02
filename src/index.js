@@ -22,7 +22,7 @@ fetchBreeds()
     new SlimSelect({
               select: selector,
               settings: {
-                placeholderText: 'Custom Placeholder Text',
+                placeholderText: 'Select cat',
               },
           });
   })
