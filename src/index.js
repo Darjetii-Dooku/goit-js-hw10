@@ -9,13 +9,15 @@ const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 
-loader.classList.replace('loader', 'is-hidden');
+loader.classList.add('loader');
 error.classList.add('is-hidden');
 catInfo.classList.add('is-hidden');
+selector.style.display = 'none';
 
 fetchBreeds()
   .then(breeds => {
     selector.innerHTML = createSectionOptionsMarkup(breeds);
+    selector.style.display = 'flex'
     new SlimSelect({
               select: selector,
               settings: {
@@ -24,6 +26,9 @@ fetchBreeds()
           });
   })
     .catch(fetchError)
+    .finally(
+      loader.classList.replace('loader', 'is-hidden'),
+    )
 
     function createSectionOptionsMarkup(breedsArr) {
       const results = breedsArr.map(

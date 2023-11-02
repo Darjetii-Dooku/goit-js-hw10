@@ -10,6 +10,9 @@
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
+.no-display {
+  display: none;
+}
   .loader {
     width: 48px;
     height: 48px;
